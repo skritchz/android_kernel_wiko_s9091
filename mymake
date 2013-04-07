@@ -1,0 +1,22 @@
+#!/bin/bash
+
+declare -a params
+while [ "$1" != "" ]; do
+	echo $1
+    case "$1" in
+        -C)
+		shift
+		echo "Found $1"
+	    folder=$1
+            ;;
+        *)
+	    params+=" "$1   
+            ;;
+    esac
+    shift
+done
+
+echo $folder
+cd $folder
+echo $params
+make $params
